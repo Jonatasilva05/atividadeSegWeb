@@ -3,72 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <title>Página de Início</title>
+    <title>Login Simples - Aula Segurança Web</title>
+    <link rel="stylesheet" href="./css/login.css">
+    <script src="./js/login.js" defer></script>
+    
 </head>
 <body>
-    
-<main>
     <div class="container">
-        <div class="form">
+        
+        <form id="formlogin">
+            <h2>Login</h2>
+            
             <div class="conteudo">
-                <div class="titulo">
-                    <h1>Login</h1>
-                </div>
+                <label for="RA"> RA </label>
                 <br>
-                <div id="inputPrime">
-                    <label for="primeInput">RA do Usuário</label>
-                    <br>
-                    <input type="number" class="inputs" id="primeInput" placeholder="Digite Seu RA..." required>
-                    <button type="button" id="verSenha2">🐵</button>
-                </div>
+                <input name="text" id="RA" class="inputs" placeholder="informe o seu RA ....." type="text" maxlength="60" required/>
                 <br>
-                <div id="inputSecond">
-                    <label for="secondInput">Senha</label>
-                    <br>
-                    <input type="password" class="inputs" id="secondInput" placeholder="Digite Sua Senha..." required>
-                    <button type="button" id="verSenha">🐵</button>
-                </div>
+                <label for="senha"> senha </label>
                 <br>
+                <input name="senha" id="senha" class="inputs" placeholder="informe sua Senha ....." type="password" maxlength="60" required/>
+                <button type="button" id="verSenha">🐵</button>
                 <a href="#" onclick="acctionInvalid()" id="invalido">Não tem conta? Cadastre-se</a>
                 <br>
-                <input type="submit" onclick="verificar()" value="Entrar">
+                <button type="submit"> Acessar </button>
             </div>
-        </div>
+            
+        </form>
+        <p id="msgerror"></p>
+
     </div>
-</main>
-
-<script>
-    function verificar() {
-        const ra = document.getElementById("primeInput").value;
-        const senha = document.getElementById("secondInput").value;
-        
-        if (ra === "" || senha === "") {
-            alert("Preencha todos os campos.");
-            return;
-        }
-
-        if (ra === "0220832311013" && senha === "3101132380220") {
-            window.location.href = "./logado/login.html";
-        } else {
-            alert("RA ou Senha Incorretos! Tente Novamente");
-        }
-    }
-
-    document.getElementById("verSenha").addEventListener("click", function () {
-        const senhaInput = document.getElementById("secondInput");
-
-        if (senhaInput.type === "password") {
-            senhaInput.type = "text";
-            this.textContent = "🙈";
-        } else {
-            senhaInput.type = "password";
-            this.textContent = "🐵";
-        }
-    });
-</script>
-
-<script src="./script.js"></script>
-
+    
 </body>
 </html>
