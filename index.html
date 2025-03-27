@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Página de Início</title>
+</head>
+<body>
+    
+<main>
+    <div class="container">
+        <div class="form">
+            <div class="conteudo">
+                <div class="titulo">
+                    <h1>Login</h1>
+                </div>
+                <br>
+                <div id="inputPrime">
+                    <label for="primeInput">RA do Usuário</label>
+                    <br>
+                    <input type="number" class="inputs" id="primeInput" placeholder="Digite Seu RA..." required>
+                    <button type="button" id="verSenha2">🐵</button>
+                </div>
+                <br>
+                <div id="inputSecond">
+                    <label for="secondInput">Senha</label>
+                    <br>
+                    <input type="password" class="inputs" id="secondInput" placeholder="Digite Sua Senha..." required>
+                    <button type="button" id="verSenha">🐵</button>
+                </div>
+                <br>
+                <a href="#" onclick="acctionInvalid()" id="invalido">Não tem conta? Cadastre-se</a>
+                <br>
+                <input type="submit" onclick="verificar()" value="Entrar">
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    function verificar() {
+        const ra = document.getElementById("primeInput").value;
+        const senha = document.getElementById("secondInput").value;
+        
+        if (ra === "" || senha === "") {
+            alert("Preencha todos os campos.");
+            return;
+        }
+
+        if (ra === "0220832311013" && senha === "3101132380220") {
+            window.location.href = "./logado/login.html";
+        } else {
+            alert("RA ou Senha Incorretos! Tente Novamente");
+        }
+    }
+
+    document.getElementById("verSenha").addEventListener("click", function () {
+        const senhaInput = document.getElementById("secondInput");
+
+        if (senhaInput.type === "password") {
+            senhaInput.type = "text";
+            this.textContent = "🙈";
+        } else {
+            senhaInput.type = "password";
+            this.textContent = "🐵";
+        }
+    });
+</script>
+
+<script src="./script.js"></script>
+
+</body>
+</html>
